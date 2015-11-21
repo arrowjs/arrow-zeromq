@@ -1,0 +1,28 @@
+{
+  "name": "arrow-zeromq",
+  "version": "0.0.1",
+  "description": "Arrowjs plugin for zeromq",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arrowjs/arrow-zeromq.git"
+  },
+  "keywords": [
+    "arrowjs",
+    "zeromq"
+  ],
+  "author": "Tran Quoc Cuong",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/arrowjs/arrow-zeromq/issues"
+  },
+  "homepage": "https://github.com/arrowjs/arrow-zeromq#readme",
+  "dependencies": {
+    "fs-extra": "^0.26.2",
+    "lodash": "^3.10.1",
+    "zmq": "^2.14.0"
+  }
+}
