@@ -10,7 +10,9 @@ action.index = function (cb) {
     }
 ```
 
+
 ## Sample call a service :
+
 ```
  application.services.B.send({
             action: 'demo.index',
@@ -25,4 +27,60 @@ action.index = function (cb) {
                 res.send(result)
             }
         })
+```
+
+## Service config :
+
+```
+ "use strict";
+ 
+ module.exports = {
+     services: { //remote services setting
+         demo: {
+             protocol: "tcp",      //default tcp
+             host: "127.0.0.1",  //default 127.0.0.1
+             port: "5555", // must have
+             type: "dealer", //default dealer
+             subscribe: "key", //default null
+             connectionType : 'connect',//default connect
+             encode : function () { // default JSON.stringify
+     
+             },
+             decode : function () { // default JSON.parser
+     
+             },
+             monitor_events: { //default null
+                 connect: function (fd, ep) {
+                     console.log('connect, endpoint:', ep);
+                 }
+             },
+             monitor: { //default null
+                 interval: 500,
+                 numOfEvents: 0
+             },
+             //sample send function
+             send: function () {
+                 let socket = this.socket
+             },
+             //sample on event function
+             onMessage: function () {
+                 let socket = this.socket
+             }
+         }
+     },
+     service_setting: { // self setting
+         enable: true, //default false
+         protocol: "tcp", //default tcp
+         host: "127.0.0.1", // default 127.0.0.1
+         port: "3333", // default server port
+         type: "router", //default router
+         connect_type: "bind", //default bind
+         send: function () {
+             let socket = this.socket
+         },
+         onMessage: function () {
+             let socket = this.socket
+         }
+     }
+ };
 ```
